@@ -4,7 +4,7 @@
             xmlns:xml="http://www.w3.org/XML/1998/namespace"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
-  <display-name>Spring-приложение, запускаемое в контейнере сервлетов</display-name>
+  <display-name>My simple blog on Spring Framework</display-name>
 
   <servlet>
     <!-- Имя и класс основного сервлета приложения-->
@@ -18,9 +18,15 @@
     </init-param>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>ru.yandex.practicum/mysimpleblog.WebConfiguration</param-value>
+      <param-value>ru.yandex.practicum.mysimpleblog.WebConfiguration</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
+
+    <multipart-config>
+      <max-file-size>20848820</max-file-size>
+      <max-request-size>41801884</max-request-size>
+      <file-size-threshold>0</file-size-threshold>
+    </multipart-config>
   </servlet>
 
   <!-- DispatcherServlet обрабатывает все запросы -->

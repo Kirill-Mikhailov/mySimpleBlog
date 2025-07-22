@@ -1,37 +1,55 @@
 package ru.yandex.practicum.mysimpleblog.dto;
 
 import lombok.Builder;
-import lombok.Value;
+import lombok.Data;
+import org.springframework.util.CollectionUtils;
 
 import java.time.Instant;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
-@Value
+import static ru.yandex.practicum.mysimpleblog.Utils.PREVIEW_SIZE;
+
+@Data
 @Builder
 public class PostDto {
 
-    UUID id;
+    @Builder.Default
+    UUID id = UUID.randomUUID();
     String title;
     String imageUrl;
-    String content;
+    String text;
     long likesCount;
     List<CommentDto> comments;
     List<String> tags;
     Instant lastChangeTimestamp;
 
-    //TODO
     public String getTextPreview() {
-        return null;
+        int delimiterIndex = text.indexOf("\r\n");
+        if (delimiterIndex != -1)
+            return text.substring(0, Math.min(PREVIEW_SIZE, delimiterIndex)) + "...";
+
+        return text.length() > PREVIEW_SIZE
+                ? text.substring(0, PREVIEW_SIZE) + "..."
+                : text;
     }
 
-    //TODO
     public List<String> getTextParts() {
-        return null;
+        return Arrays.asList(text.split("\\r?\\n"));
     }
 
-    //TODO
     public String getTagsAsText() {
-        return null;
+        return CollectionUtils.isEmpty(tags)
+                ? ""
+                : tags.stream().map(tag -> "#" + tag).collect(Collectors.joining(" "));
+    }
+
+    public void setTags(String tags) {
+        this.tags = Arrays.stream(tags.split(" "))
+                .map(String::trim)
+                .map(t -> t.replaceAll("#", ""))
+                .toList();
     }
 }

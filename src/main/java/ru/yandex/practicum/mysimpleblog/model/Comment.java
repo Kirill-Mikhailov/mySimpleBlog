@@ -15,6 +15,6 @@ public class Comment {
 
     UUID id;
     UUID postId;
-    String content;
+    String text;
     Instant lastChangeTimestamp;
 }

@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import ru.yandex.practicum.mysimpleblog.dto.CommentDto;
 import ru.yandex.practicum.mysimpleblog.model.Comment;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface CommentMapper {
 
     Comment toComment(CommentDto commentDto);

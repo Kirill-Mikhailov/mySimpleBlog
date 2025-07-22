@@ -10,8 +10,9 @@ import java.util.UUID;
 @Builder
 public class CommentDto {
 
-    UUID id;
+    @Builder.Default
+    UUID id = UUID.randomUUID();
     UUID postId;
-    String content;
+    String text;
     Instant lastChangeTimestamp;
 }

@@ -4,7 +4,8 @@ import org.mapstruct.Mapper;
 import ru.yandex.practicum.mysimpleblog.dto.PostDto;
 import ru.yandex.practicum.mysimpleblog.model.Post;
 
-@Mapper
+@Mapper(componentModel = "spring",
+        uses = CommentMapper.class)
 public interface PostMapper {
 
     Post toPost(PostDto postDto);
