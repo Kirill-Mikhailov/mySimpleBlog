@@ -2,6 +2,7 @@ package ru.yandex.practicum.mysimpleblog.dto;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.util.CollectionUtils;
 
 import java.time.Instant;
@@ -14,9 +15,11 @@ import static ru.yandex.practicum.mysimpleblog.Utils.PREVIEW_SIZE;
 
 @Data
 @Builder
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class PostDto {
 
     @Builder.Default
+    @EqualsAndHashCode.Include
     UUID id = UUID.randomUUID();
     String title;
     String imageUrl;

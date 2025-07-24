@@ -10,8 +10,10 @@ import java.util.UUID;
 @Data
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Post {
 
+    @EqualsAndHashCode.Include
     UUID id;
     String title;
     String imageUrl;

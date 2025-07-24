@@ -63,12 +63,14 @@ public class JdbcPostRepositoryImpl implements PostRepository {
             params.put("search", "%" + search + "%");
         }
 
+        sqlQuery += condition;
+
         long totalCountOfPosts = namedParameterJdbcTemplate.queryForObject(
                 "select count(*) from (" + sqlQuery + ") as all_rows",
                 params,
                 Long.class);
 
-        sqlQuery += condition + " order by p.last_change_timestamp desc limit :limit offset :offset";
+        sqlQuery += " order by p.last_change_timestamp desc limit :limit offset :offset";
 
         List<Post> posts = namedParameterJdbcTemplate.query(sqlQuery, params, this::postFromRow);
 
