@@ -21,16 +21,14 @@
 ## Сборка и тестирование:
 
 1.  **Компиляция и упаковка:**
-    `mvn clean package`
-    - создание my-simple-blog.war в каталоге target.
+    `./gradlew :bootJar`
+    - создание my-simple-blog-0.0.1-SNAPSHOT.jar в каталоге build/libs.
 2. Запуск тестов:
-   `mvn clean test`
+   `./gradlew :test`
 
 
 ## Развертывание:
 
-1. Развертывание в сервлет-контейнере:
-   - Переместить my-simple-blog.war из каталога target в каталог webapps контейнера сервлетов.
-   - Запустить контейнер сервлетов (Tomcat или Jetty).
+1. `java -jar build/libs/my-simple-blog-0.0.1-SNAPSHOT.jar`
 2. Доступ к приложению (для локальной сборки):
-   - http://localhost:8080/my-simple-blog/
+    - http://localhost:8080/my-simple-blog/
