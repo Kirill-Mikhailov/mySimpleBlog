@@ -8,7 +8,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.context.WebApplicationContext;
-import ru.yandex.practicum.mysimpleblog.WebConfiguration;
 import ru.yandex.practicum.mysimpleblog.model.Comment;
 import ru.yandex.practicum.mysimpleblog.model.Post;
 

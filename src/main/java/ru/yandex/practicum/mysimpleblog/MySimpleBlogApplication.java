@@ -1,4 +1,4 @@
-package my_simple_blog;
+package ru.yandex.practicum.mysimpleblog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
