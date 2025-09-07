@@ -3,10 +3,9 @@ package ru.yandex.practicum.mysimpleblog.controller;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mock.web.MockMultipartFile;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -17,8 +16,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
-@SpringJUnitConfig(classes = WebConfiguration.class)
-@WebAppConfiguration
+@SpringBootTest
 public abstract class AbstractPostControllerTest {
 
     @Autowired
