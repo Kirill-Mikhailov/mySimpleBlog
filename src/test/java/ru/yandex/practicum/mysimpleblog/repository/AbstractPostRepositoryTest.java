@@ -3,12 +3,9 @@ package ru.yandex.practicum.mysimpleblog.repository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.context.WebApplicationContext;
-import ru.yandex.practicum.mysimpleblog.WebConfiguration;
 import ru.yandex.practicum.mysimpleblog.model.Comment;
 import ru.yandex.practicum.mysimpleblog.model.Post;
 
@@ -16,9 +13,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
-@SpringJUnitConfig(classes = WebConfiguration.class)
-@WebAppConfiguration
-@TestPropertySource(locations = "classpath:application.properties")
+@SpringBootTest
 public class AbstractPostRepositoryTest {
 
     @Autowired
