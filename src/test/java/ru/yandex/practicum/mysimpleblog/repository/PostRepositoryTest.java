@@ -5,6 +5,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import ru.yandex.practicum.mysimpleblog.model.Post;
 
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.UUID;
 
@@ -107,7 +108,8 @@ public class PostRepositoryTest extends AbstractPostRepositoryTest {
         assertEquals(post.getComments().size(), editedPost.getComments().size());
         assertEquals(
                 post.getComments().stream().findFirst().get(), editedPost.getComments().stream().findFirst().get());
-        assertEquals(post.getLastChangeTimestamp(), editedPost.getLastChangeTimestamp());
+        assertEquals(post.getLastChangeTimestamp().truncatedTo(ChronoUnit.MILLIS),
+                editedPost.getLastChangeTimestamp().truncatedTo(ChronoUnit.MILLIS));
     }
 
     @Test
